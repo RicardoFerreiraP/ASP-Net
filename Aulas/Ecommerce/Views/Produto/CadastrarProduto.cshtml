@@ -11,10 +11,24 @@
     <title>Cadastrar Produto</title>
 </head>
 <body>
-
     <h1> Cadastrar Produto </h1>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.Label("Nome do produto")
+            @Html.TextBox("txtNome")<br>
 
-    <div> 
+            @Html.Label("Descrição do produto")
+            @Html.TextBox("txtDescricao")<br>
+
+            @Html.Label("Preço do produto")
+            @Html.TextBox("txtPreco")<br>
+
+            @Html.Label("Categoria do produto")
+            @Html.TextBox("txtCategoria")<br>
+
+            <input type="submit" value="Cadastrar" />
+         }
     </div>
 </body>
 </html>
