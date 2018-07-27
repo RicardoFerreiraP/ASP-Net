@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ecommerce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,9 +20,22 @@ namespace Ecommerce.Controllers
             return View();
         }
 
-        public ActionResult CadastrarProduto(string txtNome, string txtDescricao, string textPreco, string txtCategoria)
+        [HttpPost]
+        public ActionResult CadastrarProduto(string txtNome, string txtDescricao, string txtPreco, string txtCategoria)
         {
-            return View();
+            Context context = new Context();
+            Produto produto = new Produto
+            {
+                Nome = txtNome,
+                Descricao = txtDescricao,
+                Preco = Convert.ToDouble(txtPreco),
+                Categoria = txtCategoria
+            };
+
+            context.Produtos.Add(produto);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
