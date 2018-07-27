@@ -1,6 +1,8 @@
 ﻿
 @{
     Layout = null;
+    DateTime data = ViewBag.Data;
+    List<Ecommerce.Models.Produto> produtos = ViewBag.Produtos;
 }
 
 <!DOCTYPE html>
@@ -17,8 +19,10 @@
     @* Link em MVC | Razor *@
     @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
 
-    <div> 
+    <div>
     </div>
+
+    @data
 
 </body>
 </html>

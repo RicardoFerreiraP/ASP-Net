@@ -9,9 +9,12 @@ namespace Ecommerce.Controllers
 {
     public class ProdutoController : Controller
     {
+        Context context = new Context();
         // GET: Produto
         public ActionResult Index()
         {
+            ViewBag.Data = DateTime.Now;
+            ViewBag.Produtos = context.Produtos.ToList();
             return View();
         }
 
@@ -23,7 +26,6 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public ActionResult CadastrarProduto(string txtNome, string txtDescricao, string txtPreco, string txtCategoria)
         {
-            Context context = new Context();
             Produto produto = new Produto
             {
                 Nome = txtNome,
@@ -35,7 +37,7 @@ namespace Ecommerce.Controllers
             context.Produtos.Add(produto);
             context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Produto");
         }
     }
 }
