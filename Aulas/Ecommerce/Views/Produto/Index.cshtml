@@ -20,9 +20,30 @@
     @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
 
     <div>
-    </div>
 
-    @data
+        @data
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+
+            @foreach (Ecommerce.Models.Produto p in produtos)
+            {
+                <tr>
+                    <td>@p.Nome</td>
+                    <td>@p.Descricao</td>
+                    <td>@p.Categoria</td>
+                    <td>@p.Categoria</td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
 
 </body>
 </html>
