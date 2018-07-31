@@ -23,7 +23,7 @@
 
         @data
 
-        <table>
+        <table border="1">
             <tr>
                 <th>Nome</th>
                 <th>Descrição</th>
@@ -37,7 +37,7 @@
                 <td>@p.Nome</td>
                 <td>@p.Descricao</td>
                 <td>@p.Categoria</td>
-                <td>@p.Categoria</td>
+                <td>@p.Preco</td>
                 <td>@Html.ActionLink("Remover", "RemoverProduto", "Produto", new { id = p.ProdutoId }, null)</td>
                 <td>@Html.ActionLink("Alterar", "AlterarProduto", "Produto", new { id = p.ProdutoId }, null)</td>
             </tr>
