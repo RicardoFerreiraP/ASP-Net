@@ -39,5 +39,14 @@ namespace Ecommerce.Controllers
 
             return RedirectToAction("Index", "Produto");
         }
+
+        public ActionResult RemoverProduto(int id)
+        {
+            Produto produto = new Produto() { ProdutoId = id };
+            context.Produtos.Attach(produto);
+            context.Produtos.Remove(produto);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Produto");
+        }
     }
 }

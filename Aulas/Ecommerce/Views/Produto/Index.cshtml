@@ -33,12 +33,14 @@
 
             @foreach (Ecommerce.Models.Produto p in produtos)
             {
-                <tr>
-                    <td>@p.Nome</td>
-                    <td>@p.Descricao</td>
-                    <td>@p.Categoria</td>
-                    <td>@p.Categoria</td>
-                </tr>
+            <tr>
+                <td>@p.Nome</td>
+                <td>@p.Descricao</td>
+                <td>@p.Categoria</td>
+                <td>@p.Categoria</td>
+                <td>@Html.ActionLink("Remover", "RemoverProduto", "Produto", new { id = p.ProdutoId }, null)</td>
+                <td>@Html.ActionLink("Alterar", "AlterarProduto", "Produto", new { id = p.ProdutoId }, null)</td>
+            </tr>
             }
 
         </table>
