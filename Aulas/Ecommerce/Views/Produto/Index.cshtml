@@ -1,7 +1,9 @@
-﻿
+﻿@using Ecommerce.Models
+
+@model List<Produto>
+
 @{
     DateTime data = ViewBag.Data;
-    List<Ecommerce.Models.Produto> produtos = ViewBag.Produtos;
 }
 
 <div>
@@ -22,7 +24,7 @@
             <th></th>
         </tr>
 
-        @foreach (Ecommerce.Models.Produto p in produtos)
+        @foreach (Produto p in Model)
         {
             <tr>
                 <td>@p.Nome</td>

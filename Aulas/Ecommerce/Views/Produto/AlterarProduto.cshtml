@@ -4,25 +4,52 @@
 }
 
 <div>
-    <h1>Alterar Produto</h1>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("AlterarProduto", "Produto", FormMethod.Post))
     {
-        @Html.Hidden("txtId", produto.ProdutoId)
-        @Html.TextBox("txtId2", produto.ProdutoId, new { @disabled = "" })<br>
+        <div class="form-horizontal">
+            <fieldset>
+                <legend>Alterar Produto</legend>
 
-        @Html.Label("Nome do produto")
-        @Html.TextBox("txtNome", produto.Nome)<br>
+                @model Ecommerce.Models.Produto
 
-        @Html.Label("Descrição do produto")
-        @Html.TextBox("txtDescricao", produto.Descricao)<br>
+                @Html.HiddenFor(model => model.ProdutoId)
 
-        @Html.Label("Categoria do produto")
-        @Html.TextBox("txtCategoria", produto.Categoria)<br>
+                <div class="form-group">
+                    @Html.Label("Nome do produto", new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control"})
+                    </div>
+                </div>
 
-        @Html.Label("Preço do produto")
-        @Html.TextBox("txtPreco", produto.Preco)<br>
+                <div class="form-group">
+                    @Html.Label("Descrição do produto", new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Descricao, new { @class = "form-control" })
+                    </div>
+                </div>
 
-        <input type="submit" value="Salvar Alterações" />
+                <div class="form-group">
+                    @Html.Label("Categoria do produto", new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Categoria, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Preço do produto", new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Preco, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Salvar Alterações" class="btn btn-primary">
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
     }
 </div>
 

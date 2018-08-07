@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201807271352018_CriarBanco.Designer.cs">
       <DependentUpon>201807271352018_CriarBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808071241214_AlterTableProduto.cs" />
+    <Compile Include="Migrations\201808071241214_AlterTableProduto.Designer.cs">
+      <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -137,6 +141,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807271352018_CriarBanco.resx">
       <DependentUpon>201807271352018_CriarBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071241214_AlterTableProduto.resx">
+      <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

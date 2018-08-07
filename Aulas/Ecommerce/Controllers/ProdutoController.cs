@@ -15,8 +15,7 @@ namespace Ecommerce.Controllers
         public ActionResult Index()
         {
             ViewBag.Data = DateTime.Now;
-            ViewBag.Produtos = ProdutoDAO.RetornarProdutos();
-            return View();
+            return View(ProdutoDAO.RetornarProdutos());
         }
 
         public ActionResult CadastrarProduto()
@@ -25,16 +24,8 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastrarProduto(string txtNome, string txtDescricao, string txtPreco, string txtCategoria)
+        public ActionResult CadastrarProduto(Produto produto)
         {
-            Produto produto = new Produto
-            {
-                Nome = txtNome,
-                Descricao = txtDescricao,
-                Preco = Convert.ToDouble(txtPreco),
-                Categoria = txtCategoria
-            };
-
             ProdutoDAO.CadastrarProduto(produto);
 
             return RedirectToAction("Index", "Produto");
@@ -48,25 +39,22 @@ namespace Ecommerce.Controllers
 
         public ActionResult AlterarProduto(int id)
         {
-            ViewBag.Produto = ProdutoDAO.BuscarProdutoPorId(id);
-            return View();
+            return View(ProdutoDAO.BuscarProdutoPorId(id));
         }
 
         [HttpPost]
-        public ActionResult AlterarProduto(string txtNome, string txtDescricao, string txtPreco, string txtCategoria, int txtId)
+        public ActionResult AlterarProduto(Produto produtoAlterado)
         {
-            Produto produto = ProdutoDAO.BuscarProdutoPorId(txtId);
+            Produto produtoOriginal = ProdutoDAO.BuscarProdutoPorId(produtoAlterado.ProdutoId);
+            ProdutoDAO.AlterarProduto(produtoAlterado);
             {
-                produto.ProdutoId = txtId;
-                produto.Nome = txtNome;
-                produto.Descricao = txtDescricao;
-                produto.Categoria = txtCategoria;
-                produto.Preco = Convert.ToDouble(txtPreco);
+                produtoOriginal.Nome = produtoAlterado.Nome;
+                produtoOriginal.Descricao = produtoAlterado.Descricao;
+                produtoOriginal.Categoria = produtoAlterado.Categoria;
+                produtoOriginal.Preco = produtoAlterado.Preco;
 
-                ProdutoDAO.AlterarProduto(produto);
-
+                ProdutoDAO.AlterarProduto(produtoOriginal);
                 return RedirectToAction("Index", "Produto");
-
             }
         }
     }
