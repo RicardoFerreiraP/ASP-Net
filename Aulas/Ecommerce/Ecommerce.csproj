@@ -123,6 +123,7 @@
     <Content Include="Views\Produto\CadastrarProduto.cshtml" />
     <Content Include="Views\Produto\AlterarProduto.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\_viewstart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

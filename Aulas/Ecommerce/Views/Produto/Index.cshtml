@@ -1,34 +1,25 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/Layout.cshtml";
     DateTime data = ViewBag.Data;
     List<Ecommerce.Models.Produto> produtos = ViewBag.Produtos;
 }
 
-<!DOCTYPE html>
+<div>
+    <h1>Gerenciamento de Produtos</h1>
+    @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a>*@
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Gerenciamento de Produtos</title>
-</head>
-<body>
+    @* Link em MVC | Razor *@
+    @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
 
-    <div>
-        <h1>Gerenciamento de Produtos</h1>
-        @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a>*@
-
-        @* Link em MVC | Razor *@
-        @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
+    <table class="table table-hover table-striped" style="margin-top:30px">
 
         <tr>
-            <table class="table table-hover table-striped" style="margin-top:30px">
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Preço</th>
-                <th></th>
-                <th></th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th></th>
+            <th></th>
         </tr>
 
         @foreach (Ecommerce.Models.Produto p in produtos)
@@ -42,12 +33,11 @@
                 <td>@Html.ActionLink("Alterar", "AlterarProduto", "Produto", new { id = p.ProdutoId }, null)</td>
             </tr>
         }
+    </table>
 
-        <p>
-            Dados atualizados às: <b>@data</b>
-        </p>
+    <p>
+        Dados atualizados às: <b>@data</b>
+    </p>
+    </p>
 
-    </div>
-
-</body>
-</html>
+</div>
