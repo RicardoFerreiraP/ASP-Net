@@ -16,10 +16,20 @@ namespace Ecommerce.DAL
             return context.Produtos.ToList();
         }
 
-        public static void CadastrarProduto(Produto produto)
+        public static bool CadastrarProduto(Produto produto)
         {
-            context.Produtos.Add(produto);
-            context.SaveChanges();
+            if(BuscarProdutoPorNome(produto) == null)
+            {
+                context.Produtos.Add(produto);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public static Produto BuscarProdutoPorNome(Produto produto)
+        {
+            return context.Produtos.FirstOrDefault(x => x.Nome.Equals(produto.Nome));
         }
 
         public static Produto BuscarProdutoPorId(int id)
@@ -35,8 +45,11 @@ namespace Ecommerce.DAL
 
         public static void AlterarProduto(Produto produto)
         {
-            context.Entry(produto).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
+            if(produto != null)
+            {
+                context.Entry(produto).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

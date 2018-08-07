@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
@@ -116,6 +117,7 @@
       <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +130,8 @@
     <Content Include="Views\Produto\AlterarProduto.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\_viewstart.cshtml" />
+    <Content Include="Views\Categoria\CadastrarProduto.cshtml" />
+    <Content Include="Views\Categoria\AlterarProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
