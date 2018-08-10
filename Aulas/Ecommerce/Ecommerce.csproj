@@ -104,6 +104,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="DAL\CategoriaDAO.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -115,6 +116,10 @@
     <Compile Include="Migrations\201808071241214_AlterTableProduto.cs" />
     <Compile Include="Migrations\201808071241214_AlterTableProduto.Designer.cs">
       <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808100335133_AddTableCategorias.cs" />
+    <Compile Include="Migrations\201808100335133_AddTableCategorias.Designer.cs">
+      <DependentUpon>201808100335133_AddTableCategorias.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -130,8 +135,9 @@
     <Content Include="Views\Produto\AlterarProduto.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\_viewstart.cshtml" />
-    <Content Include="Views\Categoria\CadastrarProduto.cshtml" />
-    <Content Include="Views\Categoria\AlterarProduto.cshtml" />
+    <Content Include="Views\Categoria\CadastrarCategoria.cshtml" />
+    <Content Include="Views\Categoria\AlterarCategoria.cshtml" />
+    <Content Include="Views\Categoria\CategoriasCadastradas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808071241214_AlterTableProduto.resx">
       <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808100335133_AddTableCategorias.resx">
+      <DependentUpon>201808100335133_AddTableCategorias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

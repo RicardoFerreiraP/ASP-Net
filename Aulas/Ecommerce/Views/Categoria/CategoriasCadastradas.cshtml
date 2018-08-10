@@ -1,0 +1,37 @@
+﻿@using Ecommerce.Models
+
+@model List<Categoria>
+
+@{ 
+    DateTime data = ViewBag.Data;
+}
+
+<div>
+    <h1>Gerenciamento de Categorias</h1>
+
+    <table class="table table-hover table-striped" stle="margin-top:30px">
+
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (Categoria g in Model)
+        {
+            <tr>
+                <th>@g.NomeCategoria</th>
+                <th>@g.DescricaoCategoria</th>
+                <th>@Html.ActionLink("Alterar", "AlterarCategoria", "Categoria", new { id = g.CategoriaId }, null)</th>
+                <th>@Html.ActionLink("Remover", "RemoverCategoria", "Categoria", new { id = g.CategoriaId }, null)</th>
+            </tr>
+        }
+    </table>
+
+    <p>
+        Dados atualizados às: <b>@data</b>
+    </p>
+
+</div>
+

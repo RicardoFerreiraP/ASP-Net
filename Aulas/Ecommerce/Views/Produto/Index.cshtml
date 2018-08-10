@@ -11,7 +11,8 @@
     @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a>*@
 
     @* Link em MVC | Razor *@
-    @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
+    @Html.ActionLink("Cadastrar Produto   |   ", "CadastrarProduto", "Produto")
+    @Html.ActionLink("Cadastrar Categoria", "CadastrarCategoria", "Categoria")
 
     <table class="table table-hover table-striped" style="margin-top:30px">
 
@@ -31,15 +32,14 @@
                 <td>@p.Descricao</td>
                 <td>@p.Categoria</td>
                 <td>@p.Preco</td>
-                <td>@Html.ActionLink("Remover", "RemoverProduto", "Produto", new { id = p.ProdutoId }, null)</td>
                 <td>@Html.ActionLink("Alterar", "AlterarProduto", "Produto", new { id = p.ProdutoId }, null)</td>
+                <td>@Html.ActionLink("Remover", "RemoverProduto", "Produto", new { id = p.ProdutoId }, null)</td>
             </tr>
         }
     </table>
 
     <p>
         Dados atualizados às: <b>@data</b>
-    </p>
     </p>
 
 </div>
