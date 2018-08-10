@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Ecommerce.Models
 {
@@ -24,9 +20,8 @@ namespace Ecommerce.Models
         [DataType(DataType.MultilineText)]
         public string Descricao { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Categoria do Produto")]
-        public string Categoria { get; set; }
+        public Categoria Categoria { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Preço do Produto")]

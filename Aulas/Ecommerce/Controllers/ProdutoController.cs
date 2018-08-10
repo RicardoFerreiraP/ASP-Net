@@ -20,21 +20,32 @@ namespace Ecommerce.Controllers
 
         public ActionResult CadastrarProduto()
         {
+            ViewBag.Categorias = new SelectList(CategoriaDAO.RetornarCategorias(), "CategoriaId", "NomeCategoria");
             return View();
         }
 
         [HttpPost]
-        public ActionResult CadastrarProduto(Produto produto)
+        public ActionResult CadastrarProduto(Produto produto, int? Categorias)
         {
+            ViewBag.Categorias = new SelectList(CategoriaDAO.RetornarCategorias(), "CategoriaId", "NomeCategoria");
             if (ModelState.IsValid)
             {
-                if (ProdutoDAO.CadastrarProduto(produto))
+                if (Categorias != null )
                 {
-                    return RedirectToAction("Index", "Produto");
+                    produto.Categoria = CategoriaDAO.BuscarCategoriaPorId(Categorias);
+                    if (ProdutoDAO.CadastrarProduto(produto))
+                    {
+                        return RedirectToAction("Index", "Produto");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Não é possível adicionar um produto com o mesmo nome!");
+                        return View(produto);
+                    } 
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Não é possível adicionar um produto com o mesmo nome!");
+                    ModelState.AddModelError("", "Por favor, selecione uma categoria!");
                     return View(produto);
                 }
             }

@@ -32,7 +32,7 @@ namespace Ecommerce.DAL
             return context.Categorias.FirstOrDefault(x => x.NomeCategoria.Equals(categoria.NomeCategoria));
         }
 
-        public static Categoria BuscarCategoriaPorId(int id)
+        public static Categoria BuscarCategoriaPorId(int? id)
         {
             return context.Categorias.Find(id);
         }
