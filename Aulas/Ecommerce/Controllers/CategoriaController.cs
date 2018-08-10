@@ -18,6 +18,12 @@ namespace Ecommerce.Controllers
             return View(CategoriaDAO.RetornarCategorias());
         }
 
+        public ActionResult CadastrarCategoria()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult CadastrarCategoria(Categoria categoria)
         {
             if (ModelState.IsValid)
