@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ecommerce.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,22 @@ namespace Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
+        static ProdutoDAO produtoDAO = new ProdutoDAO();
+        static CategoriaDAO categoriaDAO = new CategoriaDAO();
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View();
+            ViewBag.Categoria = CategoriaDAO.RetornarCategorias();
+            if(id == null)
+            {
+                return View(ProdutoDAO.RetornarProdutos());
+            }
+            return View(ProdutoDAO.BuscarProdutoPorCategoria(id));
+        }
+
+        public ActionResult DetalhesProduto(int id)
+        {
+            return View(ProdutoDAO.BuscarProdutoPorId(id));
         }
     }
 }

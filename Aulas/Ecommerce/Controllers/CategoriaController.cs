@@ -65,7 +65,6 @@ namespace Ecommerce.Controllers
 
             CategoriaDAO.AlterarCategoria(categoriaOriginal);
             return RedirectToAction("CategoriasCadastradas", "Categoria");
-        }
-
+        }      
     }
 }

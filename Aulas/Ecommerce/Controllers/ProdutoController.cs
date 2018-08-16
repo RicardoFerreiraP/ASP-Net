@@ -3,6 +3,7 @@ using Ecommerce.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,13 +26,27 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastrarProduto(Produto produto, int? Categorias)
+        public ActionResult CadastrarProduto(Produto produto, int? Categorias, HttpPostedFileBase fupImagem)
         {
             ViewBag.Categorias = new SelectList(CategoriaDAO.RetornarCategorias(), "CategoriaId", "NomeCategoria");
             if (ModelState.IsValid)
             {
                 if (Categorias != null )
                 {
+                    if (fupImagem != null)
+                    {
+                        string nomeImagem = Path.GetFileName(fupImagem.FileName);
+                        string caminho = Path.Combine(Server.MapPath("~/Images/"), nomeImagem);
+
+                        fupImagem.SaveAs(caminho);
+
+                        produto.Imagem = nomeImagem;
+                    }
+                    else
+                    {
+                        produto.Imagem = "sem_imagem.jpg";
+                    }
+
                     produto.Categoria = CategoriaDAO.BuscarCategoriaPorId(Categorias);
                     if (ProdutoDAO.CadastrarProduto(produto))
                     {
@@ -79,5 +94,11 @@ namespace Ecommerce.Controllers
             ProdutoDAO.AlterarProduto(produtoOriginal);
             return RedirectToAction("Index", "Produto");
         }
+
+        public ActionResult BuscarPorCategoria(int id)
+        {
+            return ViewBag.Produtos = CategoriaDAO.BuscarCategoriaPorId(id);
+        }
+
     }
 }

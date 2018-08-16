@@ -9,11 +9,11 @@ namespace Ecommerce.DAL
 {
     public class ProdutoDAO
     {
-        private static Context context = new Context();
+        private static Context context = SingletonContext.GetInstance();
 
         public static List<Produto> RetornarProdutos()
         {
-            return context.Produtos.ToList();
+            return context.Produtos.Include("Categoria").ToList();
         }
 
         public static bool CadastrarProduto(Produto produto)
@@ -50,6 +50,11 @@ namespace Ecommerce.DAL
                 context.Entry(produto).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
             }
+        }
+
+        public static List<Produto> BuscarProdutoPorCategoria(int? id)
+        {
+            return context.Produtos.Include("Categoria").Where(x => x.Categoria.CategoriaId == id).ToList();
         }
     }
 }

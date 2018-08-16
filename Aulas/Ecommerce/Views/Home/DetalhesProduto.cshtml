@@ -1,0 +1,31 @@
+﻿@model Ecommerce.Models.Produto
+@{
+    ViewBag.Title = "DetalhesProduto";
+}
+<div>
+    <h2>DetalhesProduto</h2>
+    <table style="margin-left: 35px">
+        <tr>
+            <td colspan="4">
+                <h4>@Model.Nome</h4>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width:300px">
+                <img src="~/Images/@Model.Imagem" style="width:300px; height:300px" />
+            </td>
+            <td style="vertical-align: top; padding-left:35px">
+                <b>Descrição: </b>  @Model.Descricao <br />
+                <b>Preço: </b>R$ @Model.Preco <br />
+                <b>Categoria: </b>@Model.Categoria.NomeCategoria <br/>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+
+
+
+

@@ -1,0 +1,35 @@
+﻿@using Ecommerce.Models
+
+@model List<Produto>
+
+@{
+    ViewBag.Title = "Index";
+    List<Categoria> cat = ViewBag.Categoria;
+}
+<div>
+    <div>
+        <ul class="nav nav-tabs">
+            @foreach (Categoria c in cat)
+            {
+                <li class="nav-item">
+                    @Html.ActionLink(c.NomeCategoria, "Index", new { id = c.CategoriaId }, new { @class = "nav-link active show" } )
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div style="margin-top:20px">
+        <div class="row">
+            @foreach (var p in Model)
+            {
+                <div class="col-sm-4" style="text-align:center; margin-bottom:30px">
+                    <img src="~/Images/@p.Imagem" alt="Imagem do Produto" style="width:100px; height:100px" /><br />
+                    @Html.ActionLink(p.Nome, "DetalhesProduto", new { id = p.ProdutoId }, null)<br />
+                    <b>Preço: </b>R$ @p.Preco
+                </div>
+            }
+        </div>
+    </div>
+
+
+</div>

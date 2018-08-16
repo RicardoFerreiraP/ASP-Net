@@ -1,0 +1,19 @@
+﻿@using Ecommerce.Models
+
+@model List<Categoria>
+
+@{
+    Categoria cat = ViewBag.Categorias;
+}
+
+<div>
+
+    <h1>Selecione uma categoria</h1>
+
+    @foreach (Categoria c in Model)
+    {
+        @Html.ActionLink(c.NomeCategoria, "BuscarCategoriaPorId", new { c.CategoriaId }, null)
+    }
+
+</div>
+

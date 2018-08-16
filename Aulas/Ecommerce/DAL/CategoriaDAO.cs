@@ -9,7 +9,7 @@ namespace Ecommerce.DAL
 {
     public class CategoriaDAO
     {
-        private static Context context = new Context();
+        private static Context context = SingletonContext.GetInstance();
 
         public static List<Categoria> RetornarCategorias()
         {
@@ -36,6 +36,7 @@ namespace Ecommerce.DAL
         {
             return context.Categorias.Find(id);
         }
+
         public static void RemoverCategoria(int id)
         {
             context.Categorias.Remove(BuscarCategoriaPorId(id));
@@ -50,6 +51,5 @@ namespace Ecommerce.DAL
                 context.SaveChanges();
             }
         }
-
     }
 }

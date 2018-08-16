@@ -20,7 +20,7 @@ namespace Ecommerce.Models
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [MaxLength(50, ErrorMessage = "O campo deve ter no máximo 50 caracteres!")]
-        [Display(Name = "Descrição do Produto")]
+        [Display(Name = "Descrição da categoria")]
         public string DescricaoCategoria { get; set; }
     }
 }

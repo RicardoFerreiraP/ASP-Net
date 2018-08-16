@@ -13,7 +13,7 @@
     @* Link em MVC | Razor *@
     @Html.ActionLink("Cadastrar Produto   |   ", "CadastrarProduto", "Produto")
     @Html.ActionLink("Cadastrar Categoria   |   ", "CadastrarCategoria", "Categoria")
-    @Html.ActionLink("Categorias Cadastradas", "CategoriasCadastradas", "Categoria")
+    @Html.ActionLink("Categorias Cadastradas | ", "CategoriasCadastradas", "Categoria")
 
     <table class="table table-hover table-striped" style="margin-top:30px">
 
@@ -22,6 +22,7 @@
             <th>Descrição</th>
             <th>Categoria</th>
             <th>Preço</th>
+            <th>Imagem</th>
             <th></th>
             <th></th>
         </tr>
@@ -31,8 +32,11 @@
             <tr>
                 <td>@p.Nome</td>
                 <td>@p.Descricao</td>
-                <td>@p.Categoria</td>
+                <td>@p.Categoria.NomeCategoria</td>
                 <td>R$ @p.Preco</td>
+                <td>
+                    <img src="~/Images/@p.Imagem" alt="Imagem do Produto" style="width:100px; height:100px" />
+                </td>
                 <td>@Html.ActionLink("Alterar", "AlterarProduto", "Produto", new { id = p.ProdutoId }, null)</td>
                 <td>@Html.ActionLink("Remover", "RemoverProduto", "Produto", new { id = p.ProdutoId }, null)</td>
             </tr>

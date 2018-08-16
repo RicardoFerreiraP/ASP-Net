@@ -143,6 +143,9 @@
     <Content Include="Views\Categoria\CadastrarCategoria.cshtml" />
     <Content Include="Views\Categoria\AlterarCategoria.cshtml" />
     <Content Include="Views\Categoria\CategoriasCadastradas.cshtml" />
+    <Content Include="Views\Categoria\MostrarPorCategoria.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\DetalhesProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807271352018_CriarBanco.resx">
