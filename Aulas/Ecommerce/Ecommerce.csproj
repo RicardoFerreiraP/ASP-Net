@@ -105,32 +105,32 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="DAL\CategoriaDAO.cs" />
+    <Compile Include="DAL\ItemVendaDAO.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
     <Compile Include="DAL\SingletonContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807271352018_CriarBanco.cs" />
-    <Compile Include="Migrations\201807271352018_CriarBanco.Designer.cs">
-      <DependentUpon>201807271352018_CriarBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201808171309598_CriarBanco.cs" />
+    <Compile Include="Migrations\201808171309598_CriarBanco.Designer.cs">
+      <DependentUpon>201808171309598_CriarBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808071241214_AlterTableProduto.cs" />
-    <Compile Include="Migrations\201808071241214_AlterTableProduto.Designer.cs">
-      <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
+    <Compile Include="Migrations\201808171317343_AddTableItemVendas.cs" />
+    <Compile Include="Migrations\201808171317343_AddTableItemVendas.Designer.cs">
+      <DependentUpon>201808171317343_AddTableItemVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808100335133_AddTableCategorias.cs" />
-    <Compile Include="Migrations\201808100335133_AddTableCategorias.Designer.cs">
-      <DependentUpon>201808100335133_AddTableCategorias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808101129467_AddCategoriaTableProduto.cs" />
-    <Compile Include="Migrations\201808101129467_AddCategoriaTableProduto.Designer.cs">
-      <DependentUpon>201808101129467_AddCategoriaTableProduto.cs</DependentUpon>
+    <Compile Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.cs" />
+    <Compile Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.Designer.cs">
+      <DependentUpon>201808211132262_AddcarrinhoIdItemVenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\ItemVenda.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Sessao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -146,6 +146,7 @@
     <Content Include="Views\Categoria\MostrarPorCategoria.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DetalhesProduto.cshtml" />
+    <Content Include="Views\Home\CarrinhoCompras.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,19 +157,17 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\ItemVenda\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807271352018_CriarBanco.resx">
-      <DependentUpon>201807271352018_CriarBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808171309598_CriarBanco.resx">
+      <DependentUpon>201808171309598_CriarBanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808071241214_AlterTableProduto.resx">
-      <DependentUpon>201808071241214_AlterTableProduto.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808171317343_AddTableItemVendas.resx">
+      <DependentUpon>201808171317343_AddTableItemVendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808100335133_AddTableCategorias.resx">
-      <DependentUpon>201808100335133_AddTableCategorias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101129467_AddCategoriaTableProduto.resx">
-      <DependentUpon>201808101129467_AddCategoriaTableProduto.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.resx">
+      <DependentUpon>201808211132262_AddcarrinhoIdItemVenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

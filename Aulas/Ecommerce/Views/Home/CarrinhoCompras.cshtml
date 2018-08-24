@@ -1,0 +1,72 @@
+﻿@using Ecommerce.Models
+
+@model List<ItemVenda>
+
+@{
+    ViewBag.Title = "CarrinhoCompras";
+    double total = 0;
+}
+
+<div>
+    <h2>Carrinho de Compras</h2>
+
+    @if (Model.Count > 0)
+    {
+        <table class="table table-hover table-striped" style="margin-top:30px">
+
+            <tr>
+                <th>Imagem</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Subtotal</th>
+                <th>Data</th>
+                <th></th>
+            </tr>
+
+
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Images/@i.produtoItemVenda.Imagem" alt="Imagem do Produto" style="width:75px; height:75px" />
+                    </td>
+                    <td>@i.produtoItemVenda.Nome</td>
+                    <td>
+                        <b>@Html.ActionLink("-", "DiminuirItem", "Home", new { id = i.idItemVenda }, new { @class = "btn btn-outline-danger" })</b>
+                        @i.quantidade
+                        <b>@Html.ActionLink("+", "AumentarItem", "Home", new { id = i.idItemVenda }, new { @class = "btn btn-outline-warning" })</b>
+                    </td>
+                    <td>@i.precoItemVenda.ToString("C2")</td>
+                    @{
+                        double subtotal = i.quantidade * i.precoItemVenda;
+                        total = total + subtotal;
+                    }
+                    <td>@subtotal.ToString("C2")</td>
+                    <td>@i.dataItemVenda</td>
+
+                    <td>@Html.ActionLink("Remover item", "RemoverItem", "Home", new { id = i.idItemVenda }, new { @class = "btn btn-outline-danger" })</td>
+                </tr>
+
+            }
+        </table>
+
+        <div class="card border-success mb-3" style="max-width: 20rem; margin-bottom:30px; margin-top:30px">
+            <h5 class="card-title">Total da compra: </h5>
+            <p class="card-text">@total.ToString("C2")</p>
+        </div>
+
+        <div style="margin-top:20px">
+            @Html.ActionLink("Continuar comprando", "Index", "Home", null, new { @class = "btn btn-success" })
+        </div>
+    }
+
+    else
+    {
+        <h2 style="text-danger; margin-top:25px">Carrinho vazio!</h2>
+        @Html.ActionLink("Compre agora mesmo!", "Index", "Home", null, new { @class = "btn btn-success" })
+    }
+
+</div>
+
+

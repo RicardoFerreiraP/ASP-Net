@@ -18,7 +18,10 @@
             <td style="vertical-align: top; padding-left:35px">
                 <b>Descrição: </b>  @Model.Descricao <br />
                 <b>Preço: </b>R$ @Model.Preco <br />
-                <b>Categoria: </b>@Model.Categoria.NomeCategoria <br/>
+                <b>Categoria: </b>@Model.Categoria.NomeCategoria <br />
+                <div style="margin-top:10px">
+                    @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home", new { id = Model.ProdutoId }, new { @class = "btn btn-success" })
+                </div>
             </td>
         </tr>
     </table>

@@ -22,10 +22,11 @@
         <div class="row">
             @foreach (var p in Model)
             {
-                <div class="col-sm-4" style="text-align:center; margin-bottom:30px">
-                    <img src="~/Images/@p.Imagem" alt="Imagem do Produto" style="width:100px; height:100px" /><br />
+                <div class="col-sm-3" style="text-align:center; margin-bottom:30px">
+                    <img src="~/Images/@p.Imagem" alt="Imagem do Produto" style="width:150px; height:150px" /><br />
                     @Html.ActionLink(p.Nome, "DetalhesProduto", new { id = p.ProdutoId }, null)<br />
-                    <b>Preço: </b>R$ @p.Preco
+                    <b>Preço: </b>R$ @p.Preco <br />
+                    @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home", new { id = p.ProdutoId }, new { @class="btn btn-success" })
                 </div>
             }
         </div>

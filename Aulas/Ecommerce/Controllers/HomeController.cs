@@ -1,4 +1,6 @@
 ﻿using Ecommerce.DAL;
+using Ecommerce.Models;
+using Ecommerce.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +17,60 @@ namespace Ecommerce.Controllers
         public ActionResult Index(int? id)
         {
             ViewBag.Categoria = CategoriaDAO.RetornarCategorias();
-            if(id == null)
+            if (id == null)
             {
                 return View(ProdutoDAO.RetornarProdutos());
             }
+
+
             return View(ProdutoDAO.BuscarProdutoPorCategoria(id));
         }
 
         public ActionResult DetalhesProduto(int id)
         {
             return View(ProdutoDAO.BuscarProdutoPorId(id));
+        }
+
+        public ActionResult AdicionarAoCarrinho(int id)
+        {
+            Produto produto = ProdutoDAO.BuscarProdutoPorId(id);
+            ItemVenda itemVenda = new ItemVenda
+            {
+                produtoItemVenda = produto,
+                quantidade = 1,
+                precoItemVenda = produto.Preco,
+                dataItemVenda = DateTime.Now,
+                carrinhoId = Sessao.RetornarCarrinhoId()
+            };
+            ItemVendaDAO.CadastrarItem(itemVenda);
+
+            return RedirectToAction("CarrinhoCompras", "Home");
+        }
+
+        public ActionResult CarrinhoCompras()
+        {
+            return View(ItemVendaDAO.BuscarItensPorCarrinhoId(Sessao.RetornarCarrinhoId()));
+        }
+
+        public ActionResult DiminuirItem(int id)
+        {
+            ItemVenda itemVenda = ItemVendaDAO.BuscarItemVendaPorId(id);
+            ItemVendaDAO.DiminuirQtd(itemVenda);
+            return RedirectToAction("CarrinhoCompras");
+        }
+
+        public ActionResult AumentarItem(int id)
+        {
+            ItemVenda itemVenda = ItemVendaDAO.BuscarItemVendaPorId(id);
+            ItemVendaDAO.AumentarQtd(itemVenda);
+            return RedirectToAction("CarrinhoCompras");
+        }
+
+        public ActionResult RemoverItem(int id)
+        {
+            ItemVenda itemVenda = ItemVendaDAO.BuscarItemVendaPorId(id);
+            ItemVendaDAO.RemoverItem(itemVenda);
+            return RedirectToAction("CarrinhoCompras");
         }
     }
 }
