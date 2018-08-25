@@ -17,13 +17,16 @@ namespace Ecommerce.Controllers
         public ActionResult Index(int? id)
         {
             ViewBag.Categoria = CategoriaDAO.RetornarCategorias();
-            if (id == null)
+            if (id != null)
+            {
+                return View(ProdutoDAO.BuscarProdutoPorCategoria(id));
+                
+            }
+            else
             {
                 return View(ProdutoDAO.RetornarProdutos());
             }
-
-
-            return View(ProdutoDAO.BuscarProdutoPorCategoria(id));
+            
         }
 
         public ActionResult DetalhesProduto(int id)

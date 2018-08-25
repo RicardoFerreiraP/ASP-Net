@@ -128,6 +128,7 @@
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\ItemVenda.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Sessao.cs" />

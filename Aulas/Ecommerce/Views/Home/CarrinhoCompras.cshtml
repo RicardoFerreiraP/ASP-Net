@@ -63,7 +63,7 @@
 
     else
     {
-        <h2 style="text-danger; margin-top:25px">Carrinho vazio!</h2>
+        <h2 class="card border-warning" style="text-danger; margin-top:25px; max-width:320px; margin-bottom:30px; text-align:center">Carrinho vazio!</h2>
         @Html.ActionLink("Compre agora mesmo!", "Index", "Home", null, new { @class = "btn btn-success" })
     }
 

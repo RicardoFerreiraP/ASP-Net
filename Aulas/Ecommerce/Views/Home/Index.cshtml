@@ -12,7 +12,7 @@
             @foreach (Categoria c in cat)
             {
                 <li class="nav-item">
-                    @Html.ActionLink(c.NomeCategoria, "Index", new { id = c.CategoriaId }, new { @class = "nav-link active show" } )
+                    @Html.ActionLink(c.NomeCategoria, "Index", "Home", new { id = c.CategoriaId }, new { @class = "nav-link active show" } )
                 </li>
             }
         </ul>
