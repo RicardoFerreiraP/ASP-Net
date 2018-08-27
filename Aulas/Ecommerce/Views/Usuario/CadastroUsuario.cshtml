@@ -1,0 +1,20 @@
+﻿<div>
+    @using (Html.BeginForm("CadastrarUsuario", "Usuario", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+        <fieldset>
+            <legend>Cadastro de Usuário</legend>
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+            @model Ecommerce.Models.Usuario
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeUsuario, new { @class = "control-label col-sm-2" }))
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control", @placeholder = "Nome do produto" }))
+                    @Html.ValidationMessageFor(model => model.NomeUsuario, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </fieldset>
+    }
+</div>
