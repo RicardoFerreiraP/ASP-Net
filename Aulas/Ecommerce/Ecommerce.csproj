@@ -154,6 +154,7 @@
     <Content Include="Views\Home\DetalhesProduto.cshtml" />
     <Content Include="Views\Home\CarrinhoCompras.cshtml" />
     <Content Include="Views\Usuario\CadastroUsuario.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
