@@ -124,6 +124,10 @@
     <Compile Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.Designer.cs">
       <DependentUpon>201808211132262_AddcarrinhoIdItemVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808280017119_AddTableUsuarios.cs" />
+    <Compile Include="Migrations\201808280017119_AddTableUsuarios.Designer.cs">
+      <DependentUpon>201808280017119_AddTableUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Context.cs" />
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.resx">
       <DependentUpon>201808211132262_AddcarrinhoIdItemVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808280017119_AddTableUsuarios.resx">
+      <DependentUpon>201808280017119_AddTableUsuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

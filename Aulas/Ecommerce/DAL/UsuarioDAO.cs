@@ -6,12 +6,12 @@ namespace Ecommerce.DAL
     public class UsuarioDAO
     {
         private static Context context = SingletonContext.GetInstance();
-        
+
         public static Usuario Logar(Usuario usuario)
         {
-            var usuarioLogado = context.Usuarios.Where(x => x.Login.Equals(usuario.EmailUsuario) && x.Senha.Equals(usuario.SenhaUsuario)).FirstOrDefault();
+            var usuarioLogado = context.Usuarios.Where(x => x.EmailUsuario.Equals(usuario.EmailUsuario) && x.SenhaUsuario.Equals(usuario.SenhaUsuario)).FirstOrDefault();
 
-            if(usuarioLogado == null)
+            if (usuarioLogado == null)
             {
                 return null;
             }
@@ -22,7 +22,7 @@ namespace Ecommerce.DAL
         }
         public static bool CadastrarUsuario(Usuario usuario)
         {
-            if(BuscarUsuarioPorLogin(usuario) == null)
+            if (BuscarUsuarioPorLogin(usuario) == null)
             {
                 context.Usuarios.Add(usuario);
                 context.SaveChanges();
@@ -33,7 +33,7 @@ namespace Ecommerce.DAL
 
         public static Usuario BuscarUsuarioPorLogin(Usuario usuario)
         {
-            return context.Usuarios.FirstOrDefault(x => x.Login.Equals(usuario.EmailUsuario));
+            return context.Usuarios.FirstOrDefault(x => x.EmailUsuario.Equals(usuario.EmailUsuario));
         }
     }
 }

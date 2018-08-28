@@ -10,8 +10,24 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.NomeUsuario, new { @class = "control-label col-sm-2" }))
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control", @placeholder = "Nome do produto" }))
+                    @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control", @placeholder = "Nome de usuário" }))
                     @Html.ValidationMessageFor(model => model.NomeUsuario, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmailUsuario, new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.EmailUsuario, new { @class = "form-control", @placeholder = "E-mail do usuário" })
+                    @Html.ValidationMessageFor(model => model.EmailUsuario, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SenhaUsuario, new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.SenhaUsuario, new { @class = "form-control", @placeholder = "Senha do usuário", @type = "password" })
+                    @Html.ValidationMessageFor(model => model.SenhaUsuario, null, new { @class = "text-danger" })
                 </div>
             </div>
 
