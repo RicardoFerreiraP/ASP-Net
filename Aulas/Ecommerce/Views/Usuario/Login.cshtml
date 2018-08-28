@@ -4,7 +4,7 @@
 }
 
 <div>
-    @using (Html.BeginForm("Logar", "Usuario", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Login", "Usuario", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
     {
         <fieldset>
             <legend>Login</legend>
@@ -14,7 +14,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.EmailUsuario, new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(model => model.EmailUsuario, new { @class = "form-control", @placeholder = "E-mail" })
+                    @Html.TextBoxFor(model => model.EmailUsuario, new { @class = "form-control", @placeholder = "E-mail", type = "email"})
                     @Html.ValidationMessageFor(model => Model.EmailUsuario, null, new { @class = "text-danger" })
                 </div>
             </div>

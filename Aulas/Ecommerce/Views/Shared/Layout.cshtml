@@ -16,8 +16,17 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         @Html.ActionLink("Ecommerce UP", "Index", "Home", null, new { @class = "navbar-brand" })
-        @Html.ActionLink(Convert.ToString(qtd) + " Itens no carrinho", "CarrinhoCompras", "Home", null, new { @class = "btn btn-success", @style = "margin-left:960px" })
-        @Html.ActionLink("Login", "Login", "Usuario", null, new { @class = "btn btn-secondary", @style = "margin-left:10px" })
+        @Html.ActionLink(Convert.ToString(qtd) + " Itens no carrinho", "CarrinhoCompras", "Home", null, new { @class = "btn btn-success", @style = "margin-left:850px" })
+        @Html.ActionLink("Cadastre-se", "CadastrarUsuario", "Usuario", null, new { @class = "btn btn-info", @style = "margin-left:10px" })
+        @if (Session["Usuario"] == null)
+        {
+            @Html.ActionLink("Login", "Login", "Usuario", null, new { @class = "btn btn-secondary", @style = "margin-left:10px" })
+        }
+        else
+        {
+            @Html.ActionLink("Sair", "Sair", "Usuario", null, new { @class = "btn btn-secondary", @style = "margin-left:10px" })
+        }
+
 
     </nav>
 
@@ -25,10 +34,10 @@
         @RenderBody()
     </div>
 
-        <hr style="margin-top:30px" />
-        <footer style="text-align:center">
-            <p>&copy; @DateTime.Now.Year - Desenvolvido por Ricardo Ferreira</p>
-        </footer>
+    <hr style="margin-top:30px" />
+    <footer style="text-align:center">
+        <p>&copy; @DateTime.Now.Year - Desenvolvido por Ricardo Ferreira</p>
+    </footer>
 
 </body>
 </html>

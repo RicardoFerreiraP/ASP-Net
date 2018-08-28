@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Ecommerce.Models
 {
-    [Table("Usuario")]
+    [Table("Usuarios")]
     public class Usuario
     {
         [Key]

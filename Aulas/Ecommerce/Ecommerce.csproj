@@ -104,6 +104,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\CategoriaDAO.cs" />
     <Compile Include="DAL\ItemVendaDAO.cs" />
     <Compile Include="DAL\ProdutoDAO.cs" />
@@ -127,6 +128,10 @@
     <Compile Include="Migrations\201808280017119_AddTableUsuarios.cs" />
     <Compile Include="Migrations\201808280017119_AddTableUsuarios.Designer.cs">
       <DependentUpon>201808280017119_AddTableUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808280436212_AlterTableUsuarios.cs" />
+    <Compile Include="Migrations\201808280436212_AlterTableUsuarios.Designer.cs">
+      <DependentUpon>201808280436212_AlterTableUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -153,8 +158,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DetalhesProduto.cshtml" />
     <Content Include="Views\Home\CarrinhoCompras.cshtml" />
-    <Content Include="Views\Usuario\CadastroUsuario.cshtml" />
+    <Content Include="Views\Usuario\CadastrarUsuario.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Usuario\Erro.cshtml" />
+    <Content Include="Views\Usuario\Sucesso.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -179,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808280017119_AddTableUsuarios.resx">
       <DependentUpon>201808280017119_AddTableUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808280436212_AlterTableUsuarios.resx">
+      <DependentUpon>201808280436212_AlterTableUsuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,7 +7,7 @@ namespace Ecommerce.DAL
     {
         private static Context context = SingletonContext.GetInstance();
 
-        public static Usuario Logar(Usuario usuario)
+        public static Usuario Login(Usuario usuario)
         {
             var usuarioLogado = context.Usuarios.Where(x => x.EmailUsuario.Equals(usuario.EmailUsuario) && x.SenhaUsuario.Equals(usuario.SenhaUsuario)).FirstOrDefault();
 
