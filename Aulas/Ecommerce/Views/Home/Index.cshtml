@@ -7,30 +7,36 @@
     List<Categoria> cat = ViewBag.Categoria;
 }
 <div>
-    <div>
-        <ul class="nav nav-tabs">
-            @foreach (Categoria c in cat)
-            {
-                <li class="nav-item">
-                    @Html.ActionLink(c.NomeCategoria, "Index", "Home", new { id = c.CategoriaId }, new { @class = "nav-link active show" } )
-                </li>
-            }
-        </ul>
-    </div>
-
-    <div style="margin-top:20px">
-        <div class="row">
-            @foreach (var p in Model)
-            {
-                <div class="col-sm-3" style="text-align:center; margin-bottom:30px">
-                    <img src="~/Images/@p.Imagem" alt="Imagem do Produto" style="width:150px; height:150px" /><br />
-                    @Html.ActionLink(p.Nome, "DetalhesProduto", new { id = p.ProdutoId }, null)<br />
-                    <b>Preço: </b>R$ @p.Preco <br />
-                    @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home", new { id = p.ProdutoId }, new { @class="btn btn-success" })
-                </div>
-            }
+    @if (Session["Usuario"] == null)
+    {
+        @Html.ActionLink("Clique aqui para efetuar login e comece a comprar!", "Login", "Usuario", null, new { @class = "btn btn-info btn-lg" })
+    }
+    else
+    {
+        <div>
+            <ul class="nav nav-tabs">
+                @foreach (Categoria c in cat)
+                {
+                    <li class="nav-item">
+                        @Html.ActionLink(c.NomeCategoria, "Index", "Home", new { id = c.CategoriaId }, new { @class = "nav-link active show" })
+                    </li>
+                }
+            </ul>
         </div>
-    </div>
 
+        <div style="margin-top:20px">
+            <div class="row">
+                @foreach (var p in Model)
+                {
+                    <div class="col-sm-3" style="text-align:center; margin-bottom:30px">
+                        <img src="~/Images/@p.Imagem" alt="Imagem do Produto" style="width:150px; height:150px" /><br />
+                        @Html.ActionLink(p.Nome, "DetalhesProduto", new { id = p.ProdutoId }, null)<br />
+                        <b>Preço: </b>R$ @p.Preco <br />
+                        @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home", new { id = p.ProdutoId }, new { @class = "btn btn-success" })
+                    </div>
+                }
+            </div>
+        </div>
+    }
 
 </div>

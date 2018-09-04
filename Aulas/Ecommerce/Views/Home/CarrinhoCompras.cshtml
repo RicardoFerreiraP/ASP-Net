@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "CarrinhoCompras";
     double total = 0;
+    Usuario usuario = ViewBag.Usuario;
 }
 
 <div>
@@ -57,7 +58,8 @@
         </div>
 
         <div style="margin-top:20px">
-            @Html.ActionLink("Continuar comprando", "Index", "Home", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Continuar comprando", "Index", "Home", null, new { @class = "btn btn-info" })
+            @Html.ActionLink("Finalizar compra", "FinalizarCompra", "Home", null, new { @class = "btn btn-success" })
         </div>
     }
 

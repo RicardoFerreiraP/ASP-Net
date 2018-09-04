@@ -19,11 +19,25 @@ namespace Ecommerce.Models
         public string NomeUsuario { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
+        [Display(Name = "Endereco do usuário")]
+        public string EnderecoUsuario { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório!")]
+        [Display(Name = "Telefone do usuário")]
+        public string TelefoneUsuario { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "E-mail do usuário")]
+        [EmailAddress(ErrorMessage = "E-mail inválido!")]
         public string EmailUsuario { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório!")]
         [Display(Name = "Senha do usuário")]
         public string SenhaUsuario { get; set; }
+        
+        [Compare("SenhaUsuario", ErrorMessage = "As senhas não são iguais!")]
+        [Display(Name = "Confirmar senha")]
+        [NotMapped]
+        public string ConfirmarSenha{ get; set; }
     }
 }

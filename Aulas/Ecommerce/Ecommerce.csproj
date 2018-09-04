@@ -113,25 +113,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808171309598_CriarBanco.cs" />
-    <Compile Include="Migrations\201808171309598_CriarBanco.Designer.cs">
-      <DependentUpon>201808171309598_CriarBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201808281427061_CriarBanco.cs" />
+    <Compile Include="Migrations\201808281427061_CriarBanco.Designer.cs">
+      <DependentUpon>201808281427061_CriarBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808171317343_AddTableItemVendas.cs" />
-    <Compile Include="Migrations\201808171317343_AddTableItemVendas.Designer.cs">
-      <DependentUpon>201808171317343_AddTableItemVendas.cs</DependentUpon>
+    <Compile Include="Migrations\201809041141285_AlterTableUsuarios.cs" />
+    <Compile Include="Migrations\201809041141285_AlterTableUsuarios.Designer.cs">
+      <DependentUpon>201809041141285_AlterTableUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.cs" />
-    <Compile Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.Designer.cs">
-      <DependentUpon>201808211132262_AddcarrinhoIdItemVenda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808280017119_AddTableUsuarios.cs" />
-    <Compile Include="Migrations\201808280017119_AddTableUsuarios.Designer.cs">
-      <DependentUpon>201808280017119_AddTableUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808280436212_AlterTableUsuarios.cs" />
-    <Compile Include="Migrations\201808280436212_AlterTableUsuarios.Designer.cs">
-      <DependentUpon>201808280436212_AlterTableUsuarios.cs</DependentUpon>
+    <Compile Include="Migrations\201809041227113_AlterTableUsuarios1.cs" />
+    <Compile Include="Migrations\201809041227113_AlterTableUsuarios1.Designer.cs">
+      <DependentUpon>201809041227113_AlterTableUsuarios1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -162,6 +154,9 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Erro.cshtml" />
     <Content Include="Views\Usuario\Sucesso.cshtml" />
+    <Content Include="Views\Home\FinalizarCompra.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -175,20 +170,14 @@
     <Folder Include="Views\ItemVenda\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808171309598_CriarBanco.resx">
-      <DependentUpon>201808171309598_CriarBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808281427061_CriarBanco.resx">
+      <DependentUpon>201808281427061_CriarBanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808171317343_AddTableItemVendas.resx">
-      <DependentUpon>201808171317343_AddTableItemVendas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809041141285_AlterTableUsuarios.resx">
+      <DependentUpon>201809041141285_AlterTableUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211132262_AddcarrinhoIdItemVenda.resx">
-      <DependentUpon>201808211132262_AddcarrinhoIdItemVenda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808280017119_AddTableUsuarios.resx">
-      <DependentUpon>201808280017119_AddTableUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808280436212_AlterTableUsuarios.resx">
-      <DependentUpon>201808280436212_AlterTableUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809041227113_AlterTableUsuarios1.resx">
+      <DependentUpon>201809041227113_AlterTableUsuarios1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

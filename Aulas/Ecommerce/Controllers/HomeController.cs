@@ -20,13 +20,13 @@ namespace Ecommerce.Controllers
             if (id != null)
             {
                 return View(ProdutoDAO.BuscarProdutoPorCategoria(id));
-                
+
             }
             else
             {
                 return View(ProdutoDAO.RetornarProdutos());
             }
-            
+
         }
 
         public ActionResult DetalhesProduto(int id)
@@ -44,10 +44,12 @@ namespace Ecommerce.Controllers
                 precoItemVenda = produto.Preco,
                 dataItemVenda = DateTime.Now,
                 carrinhoId = Sessao.RetornarCarrinhoId()
+
             };
             ItemVendaDAO.CadastrarItem(itemVenda);
 
             return RedirectToAction("CarrinhoCompras", "Home");
+
         }
 
         public ActionResult CarrinhoCompras()
@@ -74,6 +76,12 @@ namespace Ecommerce.Controllers
             ItemVenda itemVenda = ItemVendaDAO.BuscarItemVendaPorId(id);
             ItemVendaDAO.RemoverItem(itemVenda);
             return RedirectToAction("CarrinhoCompras");
+        }
+
+        public ActionResult FinalizarCompra()
+        {
+
+            return View(ItemVendaDAO.BuscarItensPorCarrinhoId(Sessao.RetornarCarrinhoId()));
         }
     }
 }

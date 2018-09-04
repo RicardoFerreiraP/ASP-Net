@@ -1,22 +1,32 @@
-﻿using Ecommerce.DAL;
-using Ecommerce.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Ecommerce.DAL;
+using Ecommerce.Models;
 
 namespace Ecommerce.Controllers
 {
     public class UsuarioController : Controller
     {
-        // GET: Usuario
-        public ActionResult Login()
+        private Context db = new Context();
+        
+        public ActionResult Index()
+        {
+            return View(UsuarioDAO.RetornarUsuarios());
+        }
+        
+        public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult CadastrarUsuario()
+        public ActionResult Login()
         {
             return View();
         }
@@ -32,45 +42,37 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Usuario usuario)
+        public ActionResult Create([Bind(Include = "UsuarioId,NomeUsuario,EnderecoUsuario,TelefoneUsuario,EmailUsuario,SenhaUsuario,ConfirmarSenha")] Usuario usuario)
         {
-            var user = UsuarioDAO.Login(usuario);
-
-            if(user != null)
-            {
-                Session["Usuario"] = user;
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return RedirectToAction("Erro", "Usuario");
-            }
-        }
-
-        [HttpPost]
-        public ActionResult CadastrarUsuario(Usuario usuario)
-        {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if(UsuarioDAO.CadastrarUsuario(usuario))
                 {
-                    return RedirectToAction("Sucesso", "Usuario");
+                    return RedirectToAction("Index", "Usuario");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Esse e-mail já está cadastrado em nosso sistema!");
-                    return View(usuario);
-                }
-            }
-            else
-            {
+                ModelState.AddModelError("", "Esse usuário já existe!");
                 return View(usuario);
             }
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public ActionResult Login([Bind(Include = "EmailUsuario,SenhaUsuario")]Usuario usuario)
+        {
+            usuario = UsuarioDAO.Login(usuario);
+
+            if(usuario != null)
+            {
+                FormsAuthentication.SetAuthCookie(usuario.EmailUsuario, true);
+                return RedirectToAction("Index", "Produto");
+            }
+            ModelState.AddModelError("", "E-mail ou senha inválidos!");
+            return View(usuario);
         }
 
         public ActionResult Sair()
         {
-            Session["Usuario"] = null;
+            FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Usuario");
         }
 

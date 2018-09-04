@@ -6,18 +6,36 @@
         <legend>Cadastro de Usuário</legend>
         @Html.ValidationSummary(true, null, new { @class = "text-danger" })
 
+        <h2>Dados Pessoais</h2>
+
         <div class="form-group">
             @Html.LabelFor(model => model.NomeUsuario, new { @class = "control-label col-sm-2" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control", @placeholder = "Nome de usuário" })
+                @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "form-control", @placeholder = "Nome do cliente" })
                 @Html.ValidationMessageFor(model => model.NomeUsuario, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnderecoUsuario, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.EnderecoUsuario, new { @class = "form-control", @placeholder = "Endereço do cliente" })
+                @Html.ValidationMessageFor(model => model.EnderecoUsuario, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TelefoneUsuario, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.TelefoneUsuario, new { @class = "form-control", @placeholder = "Telefone do cliente" })
+                @Html.ValidationMessageFor(model => model.TelefoneUsuario, null, new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.EmailUsuario, new { @class = "control-label col-sm-2" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.EmailUsuario, new { @class = "form-control", @placeholder = "E-mail do usuário", @type="email" })
+                @Html.TextBoxFor(model => model.EmailUsuario, new { @class = "form-control", @placeholder = "E-mail do cliente", @type = "email" })
                 @Html.ValidationMessageFor(model => model.EmailUsuario, null, new { @class = "text-danger" })
             </div>
         </div>
@@ -25,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SenhaUsuario, new { @class = "control-label col-sm-2" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.SenhaUsuario, new { @class = "form-control", @placeholder = "Senha do usuário", @type = "password" })
+                @Html.TextBoxFor(model => model.SenhaUsuario, new { @class = "form-control", @placeholder = "Senha do cliente", @type = "password" })
                 @Html.ValidationMessageFor(model => model.SenhaUsuario, null, new { @class = "text-danger" })
             </div>
         </div>

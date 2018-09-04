@@ -22,5 +22,7 @@ namespace Ecommerce.Models
         public DateTime dataItemVenda { get; set; }
 
         public string carrinhoId { get; set; }
+
+        public Usuario usuario { get; set; }
     }
 }

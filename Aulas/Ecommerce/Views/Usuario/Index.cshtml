@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Ecommerce.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gerenciamento dos Usuários</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Usuário", "Create", "Usuario")
+</p>
+<table class="table table-hover table-striped" stle="margin-top:30px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeUsuario)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EnderecoUsuario)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TelefoneUsuario)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EmailUsuario)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.SenhaUsuario)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeUsuario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EnderecoUsuario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoneUsuario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailUsuario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SenhaUsuario)
+            </td>
+        </tr>
+    }
+
+</table>

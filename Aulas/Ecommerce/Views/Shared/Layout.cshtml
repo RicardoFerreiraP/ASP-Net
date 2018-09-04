@@ -18,7 +18,7 @@
         @Html.ActionLink("Ecommerce UP", "Index", "Home", null, new { @class = "navbar-brand" })
         @Html.ActionLink(Convert.ToString(qtd) + " Itens no carrinho", "CarrinhoCompras", "Home", null, new { @class = "btn btn-success", @style = "margin-left:850px" })
         @Html.ActionLink("Cadastre-se", "CadastrarUsuario", "Usuario", null, new { @class = "btn btn-info", @style = "margin-left:10px" })
-        @if (Session["Usuario"] == null)
+        @if (!Request.IsAuthenticated)
         {
             @Html.ActionLink("Login", "Login", "Usuario", null, new { @class = "btn btn-secondary", @style = "margin-left:10px" })
         }

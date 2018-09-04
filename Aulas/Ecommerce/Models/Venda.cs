@@ -9,12 +9,15 @@ namespace Ecommerce.Models
     {
         public int vendaId { get; set; }
 
-        public Produto produto { get; set; }
+        public List<ItemVenda> itemVenda { get; set; }
+
+        public Usuario usuario{ get; set; }
 
         public int quantidade { get; set; }
 
         public double precoVenda { get; set; }
 
         public DateTime dataVenda { get; set; }
+
     }
 }
