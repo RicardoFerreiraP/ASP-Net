@@ -39,5 +39,20 @@ namespace Ecommerce.Models
         [Display(Name = "Confirmar senha")]
         [NotMapped]
         public string ConfirmarSenha{ get; set; }
+
+        [Display(Name = "CEP")]
+        public string cep { get; set; }
+
+        [Display(Name = "Endereço")]
+        public string logradouro { get; set; }
+
+        [Display(Name = "Bairro")]
+        public string bairro { get; set; }
+
+        [Display(Name = "Cidade")]
+        public string localidade { get; set; }
+
+        [Display(Name = "Estado")]
+        public string uf { get; set; }
     }
 }

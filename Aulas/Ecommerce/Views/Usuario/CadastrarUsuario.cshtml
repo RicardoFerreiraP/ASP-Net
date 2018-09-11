@@ -49,6 +49,47 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.cep, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.cep, new { @class = "form-control", @placeholder = "CEP" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Buscar" class="btn btn-primary" formaction="PesquisarCep" formmethod="post"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.logradouro, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.logradouro, new { @class = "form-control", @placeholder = "Endereço", @readonly = "" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bairro, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.bairro, new { @class = "form-control", @placeholder = "Bairro", @readonly = "" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.localidade, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.localidade, new { @class = "form-control", @placeholder = "Cidade", @readonly = "" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.uf, new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.uf, new { @class = "form-control", @placeholder = "Estado", @readonly = "" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input type="submit" value="Cadastrar" class="btn btn-success" />
             </div>

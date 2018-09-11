@@ -4,11 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Ecommerce.DAL;
 using Ecommerce.Models;
+using Newtonsoft.Json;
 
 namespace Ecommerce.Controllers
 {
@@ -23,7 +25,11 @@ namespace Ecommerce.Controllers
         
         public ActionResult Create()
         {
-            return View();
+            if(TempData["Mensagem"] != null)
+            {
+                ModelState.AddModelError("", TempData["Mensagem"].ToString());
+            }
+            return View((Usuario)TempData["Usuario"]);
         }
 
         public ActionResult Login()
@@ -42,7 +48,7 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "UsuarioId,NomeUsuario,EnderecoUsuario,TelefoneUsuario,EmailUsuario,SenhaUsuario,ConfirmarSenha")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "UsuarioId,NomeUsuario,EnderecoUsuario,TelefoneUsuario,EmailUsuario,SenhaUsuario,ConfirmarSenha,cep,logradouro,bairro,localidade,uf")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +80,32 @@ namespace Ecommerce.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Usuario");
+        }
+
+        public ActionResult PesquisarCep(Usuario usuario)
+        {
+            try
+            {
+                string url = "https://viacep.com.br/ws/" + usuario.cep + "/json/";
+
+                WebClient client = new WebClient();
+                string json = client.DownloadString(url);
+
+                byte[] bytes = Encoding.Default.GetBytes(json);
+
+                json = Encoding.UTF8.GetString(bytes);
+
+                usuario = JsonConvert.DeserializeObject<Usuario>(json);
+
+                TempData["Usuario"] = usuario;
+            }
+            catch (Exception)
+            {
+
+                TempData["Mensagem"] = "CEP inválido!";
+            }
+
+            return RedirectToAction("Create", "Usuario");
         }
 
     }

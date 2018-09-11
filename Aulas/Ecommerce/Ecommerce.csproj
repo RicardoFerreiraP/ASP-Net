@@ -54,6 +54,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -125,6 +128,10 @@
     <Compile Include="Migrations\201809041227113_AlterTableUsuarios1.Designer.cs">
       <DependentUpon>201809041227113_AlterTableUsuarios1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809111216356_AlterTableUsuario.cs" />
+    <Compile Include="Migrations\201809111216356_AlterTableUsuario.Designer.cs">
+      <DependentUpon>201809111216356_AlterTableUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Context.cs" />
@@ -178,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041227113_AlterTableUsuarios1.resx">
       <DependentUpon>201809041227113_AlterTableUsuarios1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111216356_AlterTableUsuario.resx">
+      <DependentUpon>201809111216356_AlterTableUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
